@@ -3,15 +3,26 @@
         <app-header></app-header>
     </nz-header>
     <nz-content>
-    <!-- <nz-breadcrumb>
-        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-        <nz-breadcrumb-item>List</nz-breadcrumb-item>
-        <nz-breadcrumb-item>App</nz-breadcrumb-item>
-    </nz-breadcrumb> -->
-    <div class="inner-content">Content</div>
+        <!-- <nz-breadcrumb>
+            <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+            <nz-breadcrumb-item>List</nz-breadcrumb-item>
+            <nz-breadcrumb-item>App</nz-breadcrumb-item>
+        </nz-breadcrumb> -->
+        <div class="inner-content">Content</div>
+        <!-- <ng-container *ngTemplateOutlet="reftemplate; context:classObj"></ng-container>
+        <ng-template #reftemplate let-name="name" let-teacher="teacher" let-link="link">
+            <p>from template</p>
+            <h4>name: {{name}}</h4>
+            <h4>teacher: {{teacher}}</h4>
+            <h4>link: {{link}}</h4>
+        </ng-template> -->
+        <ng-template>
+
+        </ng-template>
     </nz-content>
     <nz-footer>
-        Ant Design ©2020 Implement By Angular
-        <app-footer></app-footer>
+        <app-footer>
+            Ant Design ©2020 Implement By Angular
+        </app-footer>
     </nz-footer>
 </nz-layout>

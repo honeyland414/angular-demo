@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
@@ -13,5 +13,9 @@ import { FooterComponent } from "./footer/footer.component";
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
-
+  classObj:object={
+    name: "javaScript",
+    teacher: "jack",
+    link: "www.example.com"
+  }
 }

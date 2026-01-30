@@ -3,6 +3,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { CommonModule } from '@angular/common';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 interface menuInfo {
   name: string;
@@ -12,7 +13,7 @@ interface menuInfo {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NzMenuModule, NzLayoutModule, NzDropDownModule, CommonModule],
+  imports: [NzIconModule, NzMenuModule, NzLayoutModule, NzDropDownModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

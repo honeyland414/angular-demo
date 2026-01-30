@@ -1,9 +1,12 @@
-<div class="logo"></div>
+<a href="http://localhost:4200/">
+    <img src="../../../assets/images/logo.png" class="header-logo">
+</a>
 
 <ng-container *ngFor="let item of menuList">
-    <a nz-dropdown [nzDropdownMenu]="menu" *ngIf="item.list else showTemplate">
+    <a nz-dropdown [nzDropdownMenu]="menu" *ngIf="item.list else showTemplate" class="menu-title">
         {{ item.name }}
-        <span nz-icon nzType="down"></span>
+        <!-- <span nz-icon nzType="down"></span> -->
+        <span nz-icon nzType="caret-down" nzTheme="outline"></span>
     </a>
     <nz-dropdown-menu #menu="nzDropdownMenu">
         <ul nz-menu nzSelectable>
@@ -14,7 +17,7 @@
     </nz-dropdown-menu>
 
     <ng-template #showTemplate>
-        <a>{{ item.name }}</a>
-    </ng-template>
+        <a class="menu-title">{{ item.name }}</a>
+    </ng-template> 
 </ng-container>
 
