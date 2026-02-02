@@ -7,7 +7,7 @@ import { LayoutComponent } from "./layout/layout.component";
   standalone: true,
   imports: [RouterOutlet, LayoutComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.less'
 })
 export class AppComponent {
   title = 'angular-demo';

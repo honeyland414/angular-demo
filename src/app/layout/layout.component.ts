@@ -10,7 +10,7 @@ import { FooterComponent } from "./footer/footer.component";
   standalone: true,
   imports: [NzMenuModule, NzLayoutModule, NzDropDownModule, HeaderComponent, FooterComponent],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrl: './layout.component.less'
 })
 export class LayoutComponent {
   classObj:object={

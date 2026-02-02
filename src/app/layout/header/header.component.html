@@ -21,3 +21,21 @@
     </ng-template> 
 </ng-container>
 
+<div class="header-search">
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+        <input type="text" nz-input placeholder="input search text" />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+        <button nz-button nzType="primary" nzSearch>
+            <span nz-icon nzType="search"></span>
+        </button>
+    </ng-template>
+</div>
+
+<nz-avatar nz-dropdown [nzDropdownMenu]="theme" [nzSize]="40" class="header-avatar" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+<nz-dropdown-menu #theme="nzDropdownMenu">
+    <ul nz-menu nzSelectable>
+        <li nz-menu-item (click)="changeTheme('default')">default</li>
+        <li nz-menu-item (click)="changeTheme('dark')">dark</li>
+    </ul>
+</nz-dropdown-menu>

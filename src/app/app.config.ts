@@ -1,3 +1,4 @@
+import { ThemeService } from './services/theme.service';
 import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
@@ -11,6 +12,20 @@ import { provideHttpClient } from '@angular/common/http';
 
 registerLocaleData(en);
 
+export function loadTheme(themeService: ThemeService): Function {
+  return () => {
+    themeService.change()
+  }
+}
+
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient()]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(), 
+    {
+      provide: 'APP_INITIALIZER',
+      useFactory: loadTheme,
+      deps: [ThemeService],
+      multi: true
+    }
+  ]
 };
+
