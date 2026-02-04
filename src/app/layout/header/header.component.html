@@ -3,34 +3,33 @@
 </a>
 
 <ng-container *ngFor="let item of menuList">
-    <a nz-dropdown [nzDropdownMenu]="menu" *ngIf="item.list else showTemplate" class="menu-title">
+    <a nz-dropdown [nzDropdownMenu]="menu" *ngIf="item.list else showTemplate" class="menu-title"
+    [routerLink]="item.path" routerLinkActive="route-link-active">
         {{ item.name }}
         <!-- <span nz-icon nzType="down"></span> -->
         <span nz-icon nzType="caret-down" nzTheme="outline"></span>
     </a>
     <nz-dropdown-menu #menu="nzDropdownMenu">
         <ul nz-menu nzSelectable>
-            <li nz-menu-item *ngFor="let name of item.list">
-                {{ name.name }}
+            <li nz-menu-item *ngFor="let child of item.list" [routerLink]="child.path">
+                {{ child.name }}
             </li>
         </ul>
     </nz-dropdown-menu>
 
     <ng-template #showTemplate>
-        <a class="menu-title">{{ item.name }}</a>
+        <a class="menu-title" [routerLink]="item.path">{{ item.name }}</a>
     </ng-template> 
 </ng-container>
 
-<div class="header-search">
-    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-        <input type="text" nz-input placeholder="input search text" />
-    </nz-input-group>
-    <ng-template #suffixIconButton>
-        <button nz-button nzType="primary" nzSearch>
-            <span nz-icon nzType="search"></span>
-        </button>
-    </ng-template>
-</div>
+<nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" class="header-search">
+    <input type="text" nz-input placeholder="input search text" />
+</nz-input-group>
+<ng-template #suffixIconButton>
+    <button nz-button nzType="primary" nzSearch>
+        <span nz-icon nzType="search"></span>
+    </button>
+</ng-template>
 
 <nz-avatar nz-dropdown [nzDropdownMenu]="theme" [nzSize]="40" class="header-avatar" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
 <nz-dropdown-menu #theme="nzDropdownMenu">
