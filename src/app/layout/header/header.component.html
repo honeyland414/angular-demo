@@ -11,7 +11,7 @@
     </a>
     <nz-dropdown-menu #menu="nzDropdownMenu">
         <ul nz-menu nzSelectable>
-            <li nz-menu-item *ngFor="let child of item.list" [routerLink]="child.path">
+            <li nz-menu-item *ngFor="let child of item.list" (click)="goToPage(child.path)">
                 {{ child.name }}
             </li>
         </ul>

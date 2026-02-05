@@ -8,6 +8,7 @@ import { ThemeService } from '../../services/theme.service';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router } from '@angular/router';
 
 interface menuInfo {
   name: string;
@@ -24,7 +25,7 @@ interface menuInfo {
 })
 
 export class HeaderComponent {
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private router: Router) {}
 
   menuList:menuInfo[] = [
     { name: 'HomePage', path: ''},
@@ -39,5 +40,9 @@ export class HeaderComponent {
   changeTheme(theme:string) {
     localStorage.setItem('theme', theme);
     this.themeService.change();
+  }
+
+  goToPage(path: string) {
+    this.router.navigate([path]);
   }
 }
